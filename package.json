@@ -1,0 +1,12 @@
+{
+  "name": "remark-import-code",
+  "version": "0.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:pomber/remark-import-code.git",
+  "author": "Rodrigo Pombo",
+  "license": "MIT",
+  "dependencies": {
+    "shell-quote": "^1.6.1",
+    "unist-util-visit": "^1.4.1"
+  }
+}
