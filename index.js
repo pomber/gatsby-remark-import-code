@@ -23,7 +23,7 @@ function attacher() {
             type: "import",
             value: `import ${
               importedCode[filePath]
-            } from "!raw-loader!${filePath}"\n`
+            } from "!!raw-loader!${filePath}"\n`
           });
         }
 
