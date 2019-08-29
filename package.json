@@ -1,6 +1,6 @@
 {
   "name": "gatsby-remark-import-code",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "main": "index.js",
   "repository": "git@github.com:pomber/remark-import-code.git",
   "author": "Rodrigo Pombo",
