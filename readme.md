@@ -1,21 +1,36 @@
-# remark-import-code
+# gatsby-remark-import-code
 
 ### Install
 
 ```bash
-$ npm install remark-import-code
+$ npm install gatsby-remark-import-code
 ```
 
 ### Use
 
-The idea is to transform md/mdx like this:
+Use it together with [gatsby-plugin-mdx](https://www.gatsbyjs.org/packages/gatsby-plugin-mdx/). In `gatsby-config.js`:
+
+```js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-plugin-mdx`,
+      options: {
+        gatsbyRemarkPlugins: [`gatsby-remark-import-code`]
+      }
+    }
+  ]
+};
+```
+
+It transforms md/mdx code blocks from this:
 
 ````md
 ```js file=./hello-world.js
 ```
 ````
 
-Into:
+into:
 
 ````md
 ```js
@@ -24,16 +39,3 @@ function helloWorld() {
 }
 ```
 ````
-
-But this plugin gets you half way there. You need to use the `remark-import-code/loader` somewhere (maybe in webpack). I use it like this with gatsby:
-
-```jsx
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import replaceCode from "remark-import-code/loader";
-
-// ...
-<MDXRenderer>{replaceCode(post.body)}</MDXRenderer>;
-// ...
-```
-
-This shouldn't be necessary, but I don't know how to get the file path when the plugin runs. Ideally it should work like [remark-embed-images](https://github.com/remarkjs/remark-embed-images/blob/master/index.js#L30).
