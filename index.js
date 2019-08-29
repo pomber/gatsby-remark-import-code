@@ -12,9 +12,14 @@ module.exports = ({ markdownAST, markdownNode, getNode, files }) => {
     if (fileArg) {
       const [, filePath] = fileArg.split(/=(.*)/);
       const fileAbsolutePath = path.join(parentNode.dir, filePath);
-      node.value = fs.readFileSync(fileAbsolutePath, "utf8");
-      // const fileNode = files.find(f => f.absolutePath === fileAbsolutePath)
-      // console.log(fileNode)
+
+      if (!fs.existsSync(fileAbsolutePath)) {
+        throw Error(
+          `Invalid file in code block; no such file "${fileAbsolutePath}"`
+        );
+      }
+
+      node.value = fs.readFileSync(fileAbsolutePath, "utf8").trim();
     }
   });
 };

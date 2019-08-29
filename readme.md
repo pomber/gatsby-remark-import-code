@@ -39,3 +39,7 @@ function helloWorld() {
 }
 ```
 ````
+
+### Related
+
+- [gatsby-remark-embed-snippet](https://www.gatsbyjs.org/packages/gatsby-remark-embed-snippet/)
