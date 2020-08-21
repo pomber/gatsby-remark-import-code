@@ -12,6 +12,7 @@ module.exports = ({ markdownAST, markdownNode, getNode, files }) => {
     if (fileArg) {
       const [, filePath] = fileArg.split(/=(.*)/);
       const fileAbsolutePath = path.join(parentNode.dir, filePath);
+      node.meta = "";
 
       if (!fs.existsSync(fileAbsolutePath)) {
         throw Error(
